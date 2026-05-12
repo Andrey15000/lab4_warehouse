@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Складской учёт</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>📦 Складской учёт</h1>
+        <button id="themeToggle">🌙 Тёмная тема</button>
+    </header>
+
+    <main>
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="products">Товары</button>
+            <button class="tab-btn" data-tab="suppliers">Поставщики</button>
+            <button class="tab-btn" data-tab="supplies">Поставки</button>
+            <button class="tab-btn" data-tab="special">Отчёты</button>
+        </div>
+
+        <!-- Вкладка Товары -->
+        <div id="products-tab" class="tab-content active">
+            <h2>Управление товарами</h2>
+            <form id="productForm">
+                <input type="text" id="prodName" placeholder="Название" required>
+                <input type="number" id="prodQuantity" placeholder="Кол-во" required>
+                <input type="number" id="prodPrice" placeholder="Цена" step="0.01" required>
+                <input type="number" id="prodMin" placeholder="Мин. остаток" required>
+                <button type="submit">Добавить товар</button>
+            </form>
+            <div id="productsList" class="cards-grid"></div>
+        </div>
+
+        <!-- Вкладка Поставщики -->
+        <div id="suppliers-tab" class="tab-content">
+            <h2>Поставщики</h2>
+            <form id="supplierForm">
+                <input type="text" id="supName" placeholder="Название" required>
+                <input type="text" id="supContact" placeholder="Контакт">
+                <button type="submit">Добавить поставщика</button>
+            </form>
+            <div id="suppliersList" class="cards-grid"></div>
+        </div>
+
+        <!-- Вкладка Поставки -->
+        <div id="supplies-tab" class="tab-content">
+            <h2>Оформить поставку</h2>
+            <form id="supplyForm">
+                <select id="supplyProductId" required><option value="">Выберите товар</option></select>
+                <select id="supplySupplierId" required><option value="">Выберите поставщика</option></select>
+                <input type="number" id="supplyQuantity" placeholder="Количество" required>
+                <input type="number" id="supplyPrice" placeholder="Цена за единицу" step="0.01" required>
+                <button type="submit">Зафиксировать поставку</button>
+            </form>
+            <h3>История поставок</h3>
+            <div id="suppliesHistory" class="timeline"></div>
+        </div>
+
+        <!-- Вкладка Отчёты -->
+        <div id="special-tab" class="tab-content">
+            <h2>Остатки на складе</h2>
+            <div id="stockList" class="cards-grid"></div>
+            <h2>Товары ниже минимума</h2>
+            <div id="lowStockList" class="cards-grid"></div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
