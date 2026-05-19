@@ -23,3 +23,8 @@ uvicorn backend.app.main:app --reload --host 0.0.0.0 --port 8010
 # В другом терминале запустить frontend
 cd frontend
 python -m http.server 5500
+
+#В создании проекта использовался ПО PyCharm
+
+### Ссылка на локальный хост
+http://127.0.0.1:5500
